@@ -57,7 +57,7 @@ export default function Login({ setisLogin }) {
   return (
     <div>
       <div className="Login">
-        <h2 className="Login_heading">Login Changed</h2>
+        <h2 className="Login_heading">Login yoyoyo</h2>
         <form className="Login_form" onSubmit={loginSubmit}>
           <input
             type="email"
