@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 const userRouter = require('./routes/userRouter.js');
 const entryRouter = require('./routes/entryRouter.js');
@@ -20,8 +21,17 @@ app.use(cors());
 app.use('/users', userRouter);
 app.use('/api/entries', entryRouter);
 
+// Deploy
+const dirname = path.resolve();
+// server all files inside build folder as static file
+app.use(express.static(path.join(dirname, '/client/build')));
+// everything user enters after server name is served by index.html
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/client/build/index.html'))
+);
+
 // Listen Server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
