@@ -27,7 +27,7 @@ const dirname = path.resolve();
 app.use(express.static(path.join(dirname, '/client/build')));
 // everything user enters after server name is served by index.html
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/client/build/index.html'))
+  res.sendFile(path.join(dirname, '/client/build/index.html'))
 );
 
 // Listen Server
