@@ -1,4 +1,4 @@
-# Project Title: 📛
+## Project Title: 📛
 Just a Journal
 
 ## Demo link: 🔗
