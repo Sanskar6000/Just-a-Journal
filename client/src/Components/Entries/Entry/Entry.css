@@ -1,0 +1,133 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+.cards {
+  list-style: none;
+  font-family: 'Shadows Into Light', cursive;
+  margin: 20px 10px 0 20px;
+}
+.cards li {
+  float: left;
+  margin: 25px;
+}
+.cards li div {
+  width: 300px;
+  height: 300px;
+  background-image: url(../img/background.jpg);
+  padding: 10px;
+  box-shadow: 2px 2px 2px #ccc;
+  transition-duration: 0.5s;
+  z-index: 1;
+}
+.cards li div:hover,
+.cards li div:focus {
+  z-index: 1000;
+  position: relative;
+}
+.cards li div h4 {
+  font-size: 25px;
+}
+.cards li div p {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* First Item */
+.cards li:nth-child(n) div {
+  background: #cffdd5;
+  -webkit-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+.cards li:nth-child(n) div:hover,
+.cards li:nth-child(n) div:focus {
+  transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+}
+
+/* Second Item */
+.cards li:nth-child(2n) div {
+  background: #fdf5cf;
+  -webkit-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+.cards li:nth-child(2n) div:hover,
+.cards li:nth-child(2n) div:focus {
+  transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+}
+
+/* Third Item */
+.cards li:nth-child(3n) div {
+  background-color: #fdcfe4;
+  -webkit-transform: rotate(-4deg);
+  -o-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+}
+.cards li:nth-child(3n) div:hover,
+.cards li:nth-child(3n) div:focus {
+  transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+}
+
+/* Fourth Item */
+.cards li:nth-child(4n) div {
+  background-color: #cfeafd;
+  -webkit-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+.cards li:nth-child(4n) div:hover,
+.cards li:nth-child(4n) div:focus {
+  transform: scale(1.25);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+}
+
+.ReadMore {
+  color: black;
+  font-style: italic;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card_icon {
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+}
+
+.card_icon:hover {
+  color: aqua;
+}
+
+.ReadMore:hover {
+  color: aqua;
+}
+
+.card_icon_edit {
+  position: absolute;
+  top: 280px;
+}
+
+.card_icon_delete {
+  position: absolute;
+  top: 280px;
+  left: 287px;
+}

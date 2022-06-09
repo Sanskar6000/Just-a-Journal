@@ -1,56 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 // The useNavigate hook returns a function that lets you navigate programmatically, for example after a form is submitted.
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-// We are using matches props
-export default function EditEntry(props) {
+import './createEntry.css';
+
+export default function CreateEntry() {
   const [entry, setEntry] = useState({
     title: '',
     date: '',
     content: '',
-    id: '',
   });
 
   //   Navigate/History prop keeps track of all the session history
   const navigate = useNavigate();
-  const paramId = useParams().id;
-
-  useEffect(() => {
-    const getEntry = async () => {
-      const token = localStorage.getItem('tokenStore');
-      if (paramId) {
-        const res = await axios.get(`/api/entries/${paramId}`, {
-          headers: { Authorization: token },
-        });
-        setEntry({
-          title: res.data.title,
-          date: new Date(res.data.date).toLocaleDateString(),
-          content: res.data.content,
-          id: res.data._id,
-        });
-      }
-    };
-    getEntry();
-  }, [paramId]);
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setEntry({ ...entry, [name]: value });
   };
 
-  const editEntry = async (e) => {
+  const createEntry = async (e) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('tokenStore');
       if (token) {
-        const { title, date, content, id } = entry;
+        const { title, date, content } = entry;
         const newEntry = {
           title,
           date,
           content,
         };
-        await axios.put(`/api/entries/${id}`, newEntry, {
+        await axios.post('/api/entries', newEntry, {
           headers: { Authorization: token },
         });
         /* Push method is used to push a path in ***History Stack*** 
@@ -63,12 +44,13 @@ export default function EditEntry(props) {
   };
 
   return (
-    <div className="createEntry">
-      <h2>Edit Entry</h2>
-      <form onSubmit={editEntry} autoComplete="off">
+    <div className="create_card">
+      <h2>Create Entry</h2>
+      <form onSubmit={createEntry}>
         <div className="row">
           <label htmlFor="title">Title</label>
           <input
+            className="createEntryInput"
             type="text"
             //Value if for initial value
             value={entry.title}
@@ -78,9 +60,23 @@ export default function EditEntry(props) {
             onChange={onChangeInput}
           />
         </div>
+        <label htmlFor="content">Date: {entry.date}</label>
+        <div className="row">
+          <input
+            type="date"
+            className="createEntryInput"
+            //Value if for initial value
+            value={entry.date}
+            id="date"
+            name="date"
+            required
+            onChange={onChangeInput}
+          />
+        </div>
         <div className="row">
           <label htmlFor="content">Content</label>
           <textarea
+            className="createEntryInput"
             type="text"
             //Value if for initial value
             value={entry.content}
@@ -88,17 +84,6 @@ export default function EditEntry(props) {
             name="content"
             required
             rows="10"
-            onChange={onChangeInput}
-          />
-        </div>
-        <label htmlFor="content">Date: {entry.date}</label>
-        <div className="row">
-          <input
-            type="date"
-            //Value if for initial value
-            value={entry.date}
-            id="date"
-            name="date"
             onChange={onChangeInput}
           />
         </div>

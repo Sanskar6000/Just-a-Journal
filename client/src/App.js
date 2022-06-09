@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Login from './Components/Login/Login';
-import Entries from './Components/Entries/Entries';
+import Entries from './Components/Entries/Entries/Entries';
 
 function App() {
   const [isLogin, setisLogin] = useState(false);

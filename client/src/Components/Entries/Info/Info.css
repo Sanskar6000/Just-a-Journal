@@ -1,0 +1,91 @@
+/* body {
+  margin: 0;
+} */
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.info_card {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.info_card {
+  max-width: 500px;
+  height: 600px;
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  overflow: hidden;
+  background-image: url(../img/background1.jpg);
+  padding: 30px;
+  box-shadow: 5px 5px 5px #ccc;
+  margin-bottom: 50px;
+  border-radius: 2px;
+}
+
+.info_title_heading {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2em;
+  color: black;
+  font-weight: 400;
+  text-align: center;
+  border-bottom: 3px solid black;
+  letter-spacing: 10px;
+}
+
+.info_title_p {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  color: black;
+  margin-top: 20px;
+  letter-spacing: 5px;
+  line-height: 1.5em;
+  text-align: center;
+  font-size: 20px;
+}
+
+.info_title_heading_socials {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 25px;
+  text-transform: capitalize;
+  color: black;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.info_socials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+
+.info_socialsli {
+  margin-top: 15px;
+}
+
+.info_socialsli a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  transition: color 0.4s ease;
+}
+
+.info_socialsli a:hover {
+  color: white;
+}
+
+.info_madeby {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 25px;
+  color: black;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  margin-top: 40px;
+}

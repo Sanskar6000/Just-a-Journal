@@ -4,6 +4,7 @@ const Users = require('../models/userModel.js');
 // using bcrypt for hashing password
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const Entries = require('../models/entryModel.js');
 
 const userController = {
   registerUser: async (req, res) => {
@@ -23,6 +24,52 @@ const userController = {
         password: passwordHash,
       });
       await newUser.save();
+
+      const usermon = await Users.findOne({ email: email });
+      // console.log(usermon.id);
+      // console.log(usermon.username);
+      // createEntries
+      const preEntry1 = new Entries({
+        title: 'Title',
+        date: '2022-04-21T18:30:00.000+00:00',
+        content: 'Content',
+        user_id: usermon.id,
+        name: usermon.username,
+      });
+      await preEntry1.save();
+      const preEntry2 = new Entries({
+        title: 'Title',
+        date: '2022-04-21T18:30:00.000+00:00',
+        content: 'Content',
+        user_id: usermon.id,
+        name: usermon.username,
+      });
+      await preEntry2.save();
+      const preEntry3 = new Entries({
+        title: 'Title',
+        date: '2022-04-21T18:30:00.000+00:00',
+        content: 'Content',
+        user_id: usermon.id,
+        name: usermon.username,
+      });
+      await preEntry3.save();
+      const preEntry4 = new Entries({
+        title: 'Title',
+        date: '2022-04-21T18:30:00.000+00:00',
+        content: 'Content',
+        user_id: usermon.id,
+        name: usermon.username,
+      });
+      await preEntry4.save();
+      const preEntry5 = new Entries({
+        title: 'Title',
+        date: '2022-04-21T18:30:00.000+00:00',
+        content: 'Content',
+        user_id: usermon.id,
+        name: usermon.username,
+      });
+      await preEntry5.save();
+
       res.json({ msg: 'Sign up success' });
     } catch (error) {
       return res.status(500).json({ msg: error.message });
