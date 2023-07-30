@@ -2,7 +2,7 @@
 Just a Journal
 
 ## Demo link: 🔗
-This application is deployed on Heroku. Please check it out 😄[here](https://diary-mern-app.herokuapp.com/).
+This application is deployed on Heroku. Please check it out 😄[here](https://just-a-journal-95z5.onrender.com/).
 
 ## About the Project:<span>  📚<span/>
 
@@ -55,7 +55,7 @@ TOKEN_SECRET=
 ```
 $ cd server
 $ npm install
-$ npm run dev
+$ npm start
 ```
 
 ### 5. Run Frontend
